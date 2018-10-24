@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Lab3HW1</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="btn1">Change Background color</string>
+    <string name="btn2">Change Buttons color</string>
+    <string name="btn3">Change font color</string>
+
+    <string name="RStatic">R</string>
+    <string name="GStatic">G</string>
+    <string name="BStatic">B</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+</resources>

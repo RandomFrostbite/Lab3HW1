@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SecondActivity">
+
+    <TextView
+        android:id="@+id/colorComponentRStatic"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentTop="true"
+
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="20dp"
+
+        android:text="@string/RStatic" />
+
+    <TextView
+        android:id="@+id/colorComponentGStatic"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/colorComponentRStatic"
+        android:layout_alignStart="@+id/colorComponentRStatic"
+
+        android:layout_marginTop="75dp"
+        android:layout_marginStart="0dp"
+
+        android:text="@string/GStatic" />
+
+    <TextView
+        android:id="@+id/colorComponentBStatic"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/colorComponentGStatic"
+        android:layout_alignStart="@+id/colorComponentGStatic"
+
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="75dp"
+
+        android:text="@string/BStatic" />
+
+    <EditText
+        android:id="@+id/CCRD"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignBaseline="@+id/colorComponentRStatic"
+        android:layout_marginStart="20dp"
+
+        android:layout_marginEnd="20dp"
+        android:layout_toEndOf="@+id/colorComponentRStatic"
+
+        android:inputType="number"
+        android:text="0"
+        android:textColorLink="@color/colorPrimaryDark" />
+
+    <EditText
+        android:id="@+id/CCGD"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignBaseline="@+id/colorComponentGStatic"
+        android:layout_alignEnd="@+id/CCRD"
+        android:layout_marginStart="20dp"
+
+        android:layout_marginEnd="0dp"
+        android:layout_toEndOf="@+id/colorComponentGStatic"
+
+        android:inputType="number"
+        android:text="0"
+        android:textColorLink="@color/colorPrimaryDark" />
+
+    <EditText
+        android:id="@+id/CCBD"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignBaseline="@+id/colorComponentBStatic"
+        android:layout_alignEnd="@+id/CCGD"
+        android:layout_marginStart="20dp"
+
+        android:layout_marginEnd="0dp"
+        android:layout_toEndOf="@+id/colorComponentBStatic"
+
+        android:inputType="number"
+        android:text="0"
+        android:textColorLink="@color/colorPrimaryDark" />
+
+    <Button
+        android:id="@+id/cancelBtn"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/colorPreview"
+
+        android:layout_alignStart="@+id/CCGD"
+
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="35dp"
+
+        android:text="@string/cancel" />
+
+    <Button
+        android:id="@+id/okBtn"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/colorPreview"
+        android:layout_alignEnd="@+id/CCBD"
+
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="0dp"
+
+        android:text="@string/ok"
+        android:onClick="setColor"/>
+
+    <ImageView
+        android:id="@+id/colorPreview"
+
+        android:layout_width="match_parent"
+        android:layout_height="7dp"
+
+        android:layout_below="@+id/CCBD"
+        android:layout_alignStart="@+id/CCBD"
+        android:layout_alignEnd="@+id/CCBD"
+
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="0dp"
+        android:src="@color/colorPrimaryDark" />
+</RelativeLayout>
