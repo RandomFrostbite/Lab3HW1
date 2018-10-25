@@ -2,6 +2,9 @@ package project.lab3hw1;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -17,6 +20,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     public static final int BUTTON_REQUEST = 1;
+    private MediaPlayer mainPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +30,18 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        fab.setImageDrawable( getResources().getDrawable( android.R.drawable.ic_media_pause ) );
+        fab.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                if ( mainPlayer.isPlaying() ) {
+                    ((FloatingActionButton)view).setImageDrawable( getResources().getDrawable( android.R.drawable.ic_media_play ) );
+                    mainPlayer.pause();
+                }
+                else {
+                    ((FloatingActionButton)view).setImageDrawable( getResources().getDrawable( android.R.drawable.ic_media_pause ) );
+                    mainPlayer.start();
+                }
             }
         });
 
@@ -96,6 +107,29 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText( getApplicationContext(), getText( R.string.cancel ), Toast.LENGTH_SHORT ).show();
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mainPlayer.pause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mainPlayer = MediaPlayer.create( this, R.raw.theme );
+        mainPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+                mp.start();
+            }});
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mainPlayer.release();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
