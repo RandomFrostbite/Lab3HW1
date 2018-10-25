@@ -60,7 +60,6 @@
         android:layout_toEndOf="@+id/colorComponentRStatic"
 
         android:inputType="number"
-        android:text="0"
         android:textColorLink="@color/colorPrimaryDark" />
 
     <EditText
@@ -77,7 +76,6 @@
         android:layout_toEndOf="@+id/colorComponentGStatic"
 
         android:inputType="number"
-        android:text="0"
         android:textColorLink="@color/colorPrimaryDark" />
 
     <EditText
@@ -94,7 +92,6 @@
         android:layout_toEndOf="@+id/colorComponentBStatic"
 
         android:inputType="number"
-        android:text="0"
         android:textColorLink="@color/colorPrimaryDark" />
 
     <Button
@@ -110,7 +107,8 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="35dp"
 
-        android:text="@string/cancel" />
+        android:text="@string/cancel"
+        android:onClick="discardColor"/>
 
     <Button
         android:id="@+id/okBtn"
@@ -139,6 +137,5 @@
 
         android:layout_marginStart="0dp"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="0dp"
-        android:src="@color/colorPrimaryDark" />
+        android:layout_marginEnd="0dp" />
 </RelativeLayout>

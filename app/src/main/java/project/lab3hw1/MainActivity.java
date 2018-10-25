@@ -1,6 +1,7 @@
 package project.lab3hw1;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,6 +11,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,6 +63,37 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult( btnData, BUTTON_REQUEST );
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult( int requestCode, int resultCode, Intent data ) {
+        if ( resultCode == RESULT_OK ) {
+            // Make sure the request was successful
+            if ( requestCode == BUTTON_REQUEST )
+            {
+                Integer r = data.getIntExtra( "Rvalue", 0 );
+                Integer g = data.getIntExtra( "Gvalue", 0 );
+                Integer b = data.getIntExtra( "Bvalue", 0 );
+
+                switch ( data.getIntExtra("btnID", 0 ) ) {
+                  case 1:
+                      ( findViewById( R.id.main ) ).setBackgroundColor( Color.rgb( r, g, b ) );
+                    break;
+                  case 2:
+                      ( findViewById( R.id.btn1 ) ).setBackgroundColor( Color.rgb( r, g, b ) );
+                      ( findViewById( R.id.btn2 ) ).setBackgroundColor( Color.rgb( r, g, b ) );
+                      ( findViewById( R.id.btn3 ) ).setBackgroundColor( Color.rgb( r, g, b ) );
+                    break;
+                  case 3:
+                      ( (Button)( findViewById( R.id.btn1 ) ) ).setTextColor( Color.rgb( r, g, b ) );
+                      ( (Button)( findViewById( R.id.btn2 ) ) ).setTextColor( Color.rgb( r, g, b ) );
+                      ( (Button)( findViewById( R.id.btn3 ) ) ).setTextColor( Color.rgb( r, g, b ) );
+                    break;
+                }
+            }
+        }
+        else if ( resultCode == RESULT_CANCELED )
+            Toast.makeText( getApplicationContext(), getText( R.string.cancel ), Toast.LENGTH_SHORT ).show();
     }
 
 
