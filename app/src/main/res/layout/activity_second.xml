@@ -12,10 +12,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-
-        android:layout_marginTop="50dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
 
         android:text="@string/RStatic" />
 
@@ -25,9 +25,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_below="@+id/colorComponentRStatic"
-        android:layout_alignStart="@+id/colorComponentRStatic"
-
+        android:layout_below="@id/colorComponentRStatic"
+        android:layout_alignStart="@id/colorComponentRStatic"
         android:layout_marginTop="75dp"
         android:layout_marginStart="0dp"
 
@@ -38,9 +37,8 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:layout_below="@+id/colorComponentGStatic"
-        android:layout_alignStart="@+id/colorComponentGStatic"
+        android:layout_below="@id/colorComponentGStatic"
+        android:layout_alignStart="@id/colorComponentGStatic"
 
         android:layout_marginStart="0dp"
         android:layout_marginTop="75dp"
@@ -54,13 +52,14 @@
         android:layout_height="wrap_content"
 
         android:layout_alignBaseline="@+id/colorComponentRStatic"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginStart="20dp"
-
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="20dp"
-        android:layout_toEndOf="@+id/colorComponentRStatic"
 
-        android:inputType="number"
-        android:textColorLink="@color/colorPrimaryDark" />
+        android:layout_toEndOf="@+id/colorComponentRStatic"
+        android:inputType="number" />
 
     <EditText
         android:id="@+id/CCGD"
@@ -68,13 +67,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_alignBaseline="@+id/colorComponentGStatic"
-        android:layout_alignEnd="@+id/CCRD"
+        android:layout_below="@+id/CCRD"
+        android:layout_alignBaseline="@id/colorComponentGStatic"
+        android:layout_alignEnd="@id/CCRD"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
 
         android:layout_marginEnd="0dp"
-        android:layout_toEndOf="@+id/colorComponentGStatic"
-
+        android:layout_toEndOf="@id/colorComponentGStatic"
         android:inputType="number"
         android:textColorLink="@color/colorPrimaryDark" />
 
@@ -84,15 +84,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_alignBaseline="@+id/colorComponentBStatic"
-        android:layout_alignEnd="@+id/CCGD"
+        android:layout_below="@+id/CCGD"
+        android:layout_alignBaseline="@id/colorComponentBStatic"
+        android:layout_alignEnd="@id/CCGD"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
 
         android:layout_marginEnd="0dp"
-        android:layout_toEndOf="@+id/colorComponentBStatic"
-
+        android:layout_toEndOf="@id/colorComponentBStatic"
         android:inputType="number"
         android:textColorLink="@color/colorPrimaryDark" />
+
+    <ImageView
+        android:id="@+id/colorPreview"
+
+        android:layout_width="400dp"
+        android:layout_height="7dp"
+
+        android:layout_below="@id/CCBD"
+        android:layout_alignStart="@id/CCBD"
+        android:layout_alignEnd="@id/CCBD"
+
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="0dp" />
 
     <Button
         android:id="@+id/cancelBtn"
@@ -100,9 +115,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_below="@+id/colorPreview"
+        android:layout_below="@id/colorPreview"
 
-        android:layout_alignStart="@+id/CCGD"
+        android:layout_alignStart="@id/CCGD"
 
         android:layout_marginStart="0dp"
         android:layout_marginTop="35dp"
@@ -116,8 +131,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_below="@+id/colorPreview"
-        android:layout_alignEnd="@+id/CCBD"
+        android:layout_below="@id/colorPreview"
+        android:layout_alignEnd="@id/CCBD"
 
         android:layout_marginTop="35dp"
         android:layout_marginEnd="0dp"
@@ -125,17 +140,5 @@
         android:text="@string/ok"
         android:onClick="setColor"/>
 
-    <ImageView
-        android:id="@+id/colorPreview"
 
-        android:layout_width="match_parent"
-        android:layout_height="7dp"
-
-        android:layout_below="@+id/CCBD"
-        android:layout_alignStart="@+id/CCBD"
-        android:layout_alignEnd="@+id/CCBD"
-
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="0dp" />
 </RelativeLayout>

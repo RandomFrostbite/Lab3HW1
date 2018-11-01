@@ -92,7 +92,6 @@ public class SecondActivity extends AppCompatActivity {
         Integer g = Integer.parseInt( gs );
         Integer b = Integer.parseInt( bs );
 
-        data.putExtra( "btnID", getIntent().getIntExtra( "btnID", 0 ) );
         data.putExtra( "Rvalue", r );
         data.putExtra( "Gvalue", g );
         data.putExtra( "Bvalue", b );

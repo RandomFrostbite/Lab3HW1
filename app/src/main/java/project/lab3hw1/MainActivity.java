@@ -50,8 +50,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent btnData = new Intent( getApplicationContext(), SecondActivity.class );
-                btnData.putExtra( "btnID", 1 );
-                startActivityForResult( btnData, BUTTON_REQUEST );
+                startActivityForResult( btnData, 1 );
             }
         });
 
@@ -60,8 +59,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent btnData = new Intent( getApplicationContext(), SecondActivity.class );
-                btnData.putExtra( "btnID", 2 );
-                startActivityForResult( btnData, BUTTON_REQUEST );
+                startActivityForResult( btnData, 2 );
             }
         });
 
@@ -70,37 +68,33 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent btnData = new Intent( getApplicationContext(), SecondActivity.class );
-                btnData.putExtra( "btnID", 3 );
-                startActivityForResult( btnData, BUTTON_REQUEST );
+                startActivityForResult( btnData, 3 );
             }
         });
     }
 
     @Override
     protected void onActivityResult( int requestCode, int resultCode, Intent data ) {
-        if ( resultCode == RESULT_OK ) {
+        if (resultCode == RESULT_OK) {
             // Make sure the request was successful
-            if ( requestCode == BUTTON_REQUEST )
-            {
-                Integer r = data.getIntExtra( "Rvalue", 0 );
-                Integer g = data.getIntExtra( "Gvalue", 0 );
-                Integer b = data.getIntExtra( "Bvalue", 0 );
+            Integer r = data.getIntExtra("Rvalue", 0);
+            Integer g = data.getIntExtra("Gvalue", 0);
+            Integer b = data.getIntExtra("Bvalue", 0);
 
-                switch ( data.getIntExtra("btnID", 0 ) ) {
-                  case 1:
-                      ( findViewById( R.id.main ) ).setBackgroundColor( Color.rgb( r, g, b ) );
+            switch (requestCode) {
+                case 1:
+                    (findViewById(R.id.main)).setBackgroundColor(Color.rgb(r, g, b));
                     break;
-                  case 2:
-                      ( findViewById( R.id.btn1 ) ).setBackgroundColor( Color.rgb( r, g, b ) );
-                      ( findViewById( R.id.btn2 ) ).setBackgroundColor( Color.rgb( r, g, b ) );
-                      ( findViewById( R.id.btn3 ) ).setBackgroundColor( Color.rgb( r, g, b ) );
+                case 2:
+                    (findViewById(R.id.btn1)).setBackgroundColor(Color.rgb(r, g, b));
+                    (findViewById(R.id.btn2)).setBackgroundColor(Color.rgb(r, g, b));
+                    (findViewById(R.id.btn3)).setBackgroundColor(Color.rgb(r, g, b));
                     break;
-                  case 3:
-                      ( (Button)( findViewById( R.id.btn1 ) ) ).setTextColor( Color.rgb( r, g, b ) );
-                      ( (Button)( findViewById( R.id.btn2 ) ) ).setTextColor( Color.rgb( r, g, b ) );
-                      ( (Button)( findViewById( R.id.btn3 ) ) ).setTextColor( Color.rgb( r, g, b ) );
+                case 3:
+                    ((Button) (findViewById(R.id.btn1))).setTextColor(Color.rgb(r, g, b));
+                    ((Button) (findViewById(R.id.btn2))).setTextColor(Color.rgb(r, g, b));
+                    ((Button) (findViewById(R.id.btn3))).setTextColor(Color.rgb(r, g, b));
                     break;
-                }
             }
         }
         else if ( resultCode == RESULT_CANCELED )
@@ -123,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 mp.setLooping(true);
                 mp.start();
             }});
+        ((FloatingActionButton)findViewById(R.id.fab)).setImageDrawable( getResources().getDrawable( android.R.drawable.ic_media_pause ) );
     }
 
     @Override
